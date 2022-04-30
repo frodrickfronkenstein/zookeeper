@@ -5,16 +5,13 @@ const {
     createNewZookeeper,
     validateZookeeper,
 } = require("../lib/zookeepers.js");
-const { zookeepers } = require("../data/zookeepers");
-const { expect } = require("expect");
 
 jest.mock('fs');
 
 test("creates a zookeeper object", () => {
     const zookeeper = createNewZookeeper(
         { name: "Darlene", id: "asdlfasdf" },
-        zookeepers
-    );
+         []);
     expect(zookeeper.name).toBe("Darlene");
     expect(zookeeper.id).toBe("asdlfasdf");
 });
@@ -49,7 +46,7 @@ test("finds by id",() => {
         {
             id: "3",
             name: "Isabella",
-            age: "67",
+            age: 67,
             favoriteAnimal: "bear",
         },
     ];
